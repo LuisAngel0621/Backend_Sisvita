@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template as request, make_response
+from flask import Blueprint
+from flask import request, make_response
+from flask import jsonify
 from flask import jsonify
 from models.UsuarioTest import UsuarioTest
 from schemas.UsuarioTest_schema import Usuario_Test_Schema
