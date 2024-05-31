@@ -10,5 +10,4 @@ class UsuarioTestSchema():
                   'pregunta',
                   'respuesta',
                   'nropregunta')
-
 Usuario_Test_Schema = UsuarioTestSchema()

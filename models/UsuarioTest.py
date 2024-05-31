@@ -8,10 +8,7 @@ class UsuarioTest(db.Model):
     pregunta = db.Column(db.String)
     respuesta = db.Column(db.String)
     nropregunta = db.Column(db.Integer)
-
-    Test = db.relationship('Test', backref = 'UsuarioTest')
-    UsuarioTipo = db.relationship('UsuarioTipo', backref = 'UsuarioTest')
-
+    
     def __init__(self, id_test, id_paciente, pregunta, respuesta, nropregunta):
         self.id_test = id_test
         self.id_paciente = id_paciente

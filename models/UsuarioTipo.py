@@ -11,8 +11,6 @@ class UsuarioTipo(db.Model):
     condiciones = db.Column(db.Boolean)
     terminos = db.Column(db.Boolean)
 
-    TipoUsuario = db.relationship('TipoUsuario', backref = 'UsuarioTipo')
-    Usuario = db.relationship('Usuario', backref = 'UsuarioTipo')
 
     def __init__(self, id_tipo, tipo, estado):
         self.id_tipo = id_tipo

@@ -7,7 +7,7 @@ class UsuarioSchema():
         fields = ('id_usu',
                   'nombres',
                   'apellidos',
-                  'correoconst',
+                  'correoinstitucional',
                   'edad',
                   'sexo',
                   'estadocivil',

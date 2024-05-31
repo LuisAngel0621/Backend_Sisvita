@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template as request, make_response
+from flask import Blueprint
+from flask import request, make_response
 from flask import jsonify
 from models.Usuario import Usuario
 from schemas.Usuario_schema import Usuario_Schema
@@ -10,13 +11,13 @@ usuario = Blueprint('usuarios',__name__)
 def Guardar_datos():
     nombres = request.json.get('nombres')
     apellidos = request.json.get('apellidos')
-    correoconst = request.json.get('correoconst')
+    correoinstitucional = request.json.get('correoinstitucional')
     edad = request.json.get('edad')
     sexo = request.json.get('sexo')
     estadocivil = request.json.get('estadocivil')
     ocupacion = request.json.get('ocupacion')
 
-    new_usuario = Usuario(nombres, apellidos, correoconst, edad, sexo, estadocivil, ocupacion)
+    new_usuario = Usuario(nombres, apellidos, correoinstitucional, edad, sexo, estadocivil, ocupacion)
     db.session.add(new_usuario)
     db.session.commit()
 
