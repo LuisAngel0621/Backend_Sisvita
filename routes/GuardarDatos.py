@@ -7,9 +7,9 @@ from db import db
 
 usuario = Blueprint('usuarios',__name__)
 
-@usuario.route('/GuardarDatos', methods = ['POST'])
+@usuario.route('/GuardarDatos', methods = ['POST']) #cambiar el nombre del CUS
 def Guardar_datos():
-    nombres = request.json.get('nombres')
+    nombres = request.json.get('nombres') 
     apellidos = request.json.get('apellidos')
     correoinstitucional = request.json.get('correoinstitucional')
     edad = request.json.get('edad')
