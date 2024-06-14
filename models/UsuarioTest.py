@@ -10,10 +10,12 @@ class UsuarioTest(db.Model):
     pregunta = db.Column(db.String)
     respuesta = db.Column(db.Integer)
     nropregunta = db.Column(db.Integer)
+    id_escala = db.Column(db.Integer, db.ForeignKey('tb_escala.id_escala'))
 
-    def __init__(self, id_test, id_paciente, pregunta, respuesta, nropregunta):
+    def __init__(self, id_test, id_paciente, pregunta, respuesta, nropregunta, id_escala):
         self.id_test = id_test
         self.id_paciente = id_paciente
         self.pregunta = pregunta
         self.respuesta = respuesta
         self.nropregunta = nropregunta
+        self.id_escala = id_escala

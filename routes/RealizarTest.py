@@ -8,15 +8,16 @@ from db import db
 
 respuestas = Blueprint('respuestas', __name__)
 
-@respuestas.route('/respuestas', methods = ['POST'])
+@respuestas.route('/RealizarTest', methods = ['POST'])
 def Guardar_Respuestas():
     id_test = request.json.get('id_test')
     id_paciente = request.json.get('id_paciente')
     pregunta = request.json.get('pregunta')
     respuesta = request.json.get('respuesta')
     nropregunta = request.json.get('nropregunta')
+    id_escala = request.json.get('id_escala')
 
-    new_respuesta = UsuarioTest(id_test, id_paciente, pregunta, respuesta, nropregunta)
+    new_respuesta = UsuarioTest(id_test, id_paciente, pregunta, respuesta, nropregunta,id_escala)
     db.session.add(new_respuesta)
     db.session.commit()
 
