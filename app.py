@@ -1,10 +1,11 @@
 from flask import Flask
-from routes.GuardarDatos import usuario
-from routes.GuardarRespuestas import respuestas
+from routes.RegistrarUsuario import usuario
+from routes.RealizarTest import respuestas
 from Config import DATABASE_CONNECTION_URI
 from flask_cors import CORS
 from db import db
 from ma import ma
+
 
 app = Flask(__name__)
         
