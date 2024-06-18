@@ -10,5 +10,4 @@ class TestSchema():
                   'fechatnoma',
                   'estado')
     
-
 Test_Schema = TestSchema()
