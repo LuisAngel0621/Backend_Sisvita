@@ -32,11 +32,20 @@ def Guardar_datos():
     return make_response(jsonify(data),201)
 
 
-@usuario.route('/CantidadTabla',methods = ['GET'])
-def Buscar_usuario():
-    cantidad = db.session.query(Usuario).count()
+@usuario.route('/Buscarusuario/<string:correoinstitucional>',methods = ['GET'])
+def Buscar_usuario(correoinstitucional):
+    usuario = Usuario.query.filter_by(correoinstitucional = correoinstitucional).first()
 
-    return make_response(jsonify({'cantidad': cantidad}), 200)
+    # Verificar si el usuario fue encontrado
+    if usuario:
+        # Preparar la respuesta con la información del usuario
+        usuario_data = {
+            'id': usuario.id_usu
+        }
+        return make_response(jsonify(usuario_data), 200)
+    else:
+        # Si no se encuentra el usuario, devolver un mensaje de error
+        return make_response(jsonify({'message': 'Usuario no encontrado'}), 404)
 
 @usuario.route('/EnviarContrasenia', methods = ['POST'])
 def Generar_contrasenia():
