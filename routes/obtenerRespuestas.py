@@ -13,7 +13,7 @@ def obtener_preguntas():
     repuestaSchema = Tests_Schema.dump(repuestas)
 
     data = {
-        'preguntas': repuestaSchema,
+        'respuestas': repuestaSchema,
         'status': 200
     }
 
