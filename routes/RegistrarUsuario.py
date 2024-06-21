@@ -59,7 +59,7 @@ def Buscar_usuario(correoinstitucional):
 
 @usuario.route('/EnviarContrasenia', methods = ['POST'])
 def Generar_contrasenia():
-    id_tipo = request.json.get(1) 
+    id_tipo = request.json.get("id_tipo") 
     id_usu = request.json.get('id_usu')
     sesion = request.json.get(True)
     fechasesion = request.json.get('fechasesion')
