@@ -25,8 +25,11 @@ def Guardar_datos():
     db.session.add(new_usuario)
     db.session.commit()
 
+    result = Usuario_Schema(new_usuario)
+
     data = {
         'message': 'Nuevo Usuario registrado',
+        'data': result,
         'status': 201
     }
 
