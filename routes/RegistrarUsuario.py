@@ -29,9 +29,7 @@ def Guardar_datos():
     
     result = Usuario_Schema.dump(new_usuario)
     data = {
-        'message': 'Nuevo Usuario registrado',
-        'status': 201,
-        'usuario': result
+        'message': result
     }
 
     return make_response(jsonify(data),201)
