@@ -83,3 +83,6 @@ def Generar_contrasenia():
     }
 
     return make_response(jsonify(data),201)
+
+
+

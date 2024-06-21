@@ -10,19 +10,24 @@ respuestas = Blueprint('respuestas', __name__)
 
 @respuestas.route('/RealizarTest', methods = ['POST'])
 def Guardar_Respuestas():
-    id_test = request.json.get('id_test')
-    id_paciente = request.json.get('id_paciente')
-    id_escala = request.json.get('id_escala')
-    id_respuestas = request.json.get('id_respuestas')
-    id_preguntas = request.json.get('id_preguntas')
+    data = request.json
+    id_test = data.get('id_test')
+    id_paciente = data.get('id_paciente')
+    answers = data.get('answers')
 
-    new_respuesta = UsuarioTest(id_test, id_paciente, id_escala, id_respuestas, id_preguntas)
-    db.session.add(new_respuesta)
+    
+    for answer in answers:
+        id_escala = answer.get('id_escala')
+        id_respuestas = answer.get('id_respuestas')
+        id_preguntas = answer.get('id_preguntas')
+
+        if not id_preguntas or not id_respuestas:
+            return jsonify({'error': 'Cada respuesta debe contener question_id y respuesta'}), 400
+        new_test = UsuarioTest(id_test = id_test,id_paciente=id_paciente,id_escala = id_escala, id_respuestas=id_respuestas, id_preguntas=id_preguntas)
+        db.session.add(new_test)
     db.session.commit()
+    return make_response(jsonify({'message': 'Registro de Test exitoso'}), 201)
 
-    data={
-        'message' : 'Test respondido',
-        'status:' : 201
-    }
 
-    return make_response(jsonify(data),201)
+
+
