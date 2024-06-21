@@ -1,7 +1,7 @@
 from ma import ma
 from models.UsuarioTest import UsuarioTest
 
-class UsuarioTestSchema():
+class UsuarioTestSchema(ma.Schema):
     class Meta:
         model = UsuarioTest
         fields = ('id_user_test',

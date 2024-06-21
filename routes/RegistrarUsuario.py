@@ -22,15 +22,16 @@ def Guardar_datos():
     ocupacion = request.json.get('ocupacion')
 
     new_usuario = Usuario(nombres, apellidos, correoinstitucional, edad, sexo, estadocivil, ocupacion)
+   
     db.session.add(new_usuario)
     db.session.commit()
 
-    result = Usuario_Schema(new_usuario)
-
+    
+    result = Usuario_Schema.dump(new_usuario)
     data = {
         'message': 'Nuevo Usuario registrado',
-        'data': result,
-        'status': 201
+        'status': 201,
+        'usuario': result
     }
 
     return make_response(jsonify(data),201)

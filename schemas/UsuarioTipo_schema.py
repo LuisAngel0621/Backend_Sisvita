@@ -1,7 +1,7 @@
 from ma import ma
 from models.UsuarioTipo import UsuarioTipo
 
-class UsuarioTipoSchema():
+class UsuarioTipoSchema(ma.Schema):
     class Meta:
         model = UsuarioTipo
         fields = ('id_usutip',
