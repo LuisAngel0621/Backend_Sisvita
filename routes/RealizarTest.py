@@ -12,12 +12,11 @@ respuestas = Blueprint('respuestas', __name__)
 def Guardar_Respuestas():
     id_test = request.json.get('id_test')
     id_paciente = request.json.get('id_paciente')
-    pregunta = request.json.get('pregunta')
-    respuesta = request.json.get('respuesta')
-    nropregunta = request.json.get('nropregunta')
     id_escala = request.json.get('id_escala')
+    id_respuestas = request.json.get('id_respuestas')
+    id_preguntas = request.json.get('id_preguntas')
 
-    new_respuesta = UsuarioTest(id_test, id_paciente, pregunta, respuesta, nropregunta,id_escala)
+    new_respuesta = UsuarioTest(id_test, id_paciente, id_escala, id_respuestas, id_preguntas)
     db.session.add(new_respuesta)
     db.session.commit()
 

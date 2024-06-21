@@ -7,15 +7,13 @@ class UsuarioTest(db.Model):
     id_user_test = db.Column(db.Integer, primary_key=True) 
     id_test = db.Column(db.Integer, db.ForeignKey('tb_test.id_test'))
     id_paciente = db.Column(db.Integer, db.ForeignKey('tb_usuario_tipo.id_usutip'))
-    pregunta = db.Column(db.String)
-    respuesta = db.Column(db.Integer)
-    nropregunta = db.Column(db.Integer)
     id_escala = db.Column(db.Integer, db.ForeignKey('tb_escala.id_escala'))
+    id_respuestas = db.Column(db.Integer, db.ForeignKey('tb_respuestas.id_respuestas'))
+    id_preguntas = db.Column(db.Integer, db.ForeignKey('tb_preguntas.id_preguntas'))
 
-    def __init__(self, id_test, id_paciente, pregunta, respuesta, nropregunta, id_escala):
+    def __init__(self, id_test, id_paciente, id_escala, id_respuestas, id_preguntas):
         self.id_test = id_test
         self.id_paciente = id_paciente
-        self.pregunta = pregunta
-        self.respuesta = respuesta
-        self.nropregunta = nropregunta
         self.id_escala = id_escala
+        self.id_respuestas = id_respuestas
+        self.id_preguntas = id_preguntas
