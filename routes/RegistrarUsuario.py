@@ -59,21 +59,21 @@ def Buscar_usuario(correoinstitucional):
 
 @usuario.route('/EnviarContrasenia', methods = ['POST'])
 def Generar_contrasenia():
-    id_tipo = request.json.get("id_tipo") 
+    id_tipo = request.json.get('id_tipo') 
     id_usu = request.json.get('id_usu')
-    sesion = request.json.get(True)
+    sesion = request.json.get('sesion')
     fechasesion = request.json.get('fechasesion')
-    condiciones = request.json.get(True)
-    terminos = request.json.get(True)
+    condiciones = request.json.get('condiciones')
+    terminos = request.json.get('terminos')
 
     # Genera una contraseña aleatoria segura
     alphabet = string.ascii_letters + string.digits + string.punctuation
-    contrasenia = ''.join(secrets.choice(alphabet) for i in range(12))  # Longitud de 12 caracteres
+    pre_contrasenia = ''.join(secrets.choice(alphabet) for i in range(12))  # Longitud de 12 caracteres
 
     # Hashea la contraseña generada
-    hashed_password = generate_password_hash(contrasenia)    
+    contraseña = generate_password_hash(pre_contrasenia)    
 
-    new_usuarioTipo = UsuarioTipo(id_tipo, id_usu, sesion, fechasesion, hashed_password, condiciones, terminos)
+    new_usuarioTipo = UsuarioTipo(id_tipo, id_usu, sesion, fechasesion, contraseña, condiciones, terminos)
     db.session.add(new_usuarioTipo)
     db.session.commit()
 

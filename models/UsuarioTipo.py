@@ -9,12 +9,16 @@ class UsuarioTipo(db.Model):
     id_usu = db.Column(db.Integer, db.ForeignKey('tb_usuario.id_usu'))
     sesion = db.Column(db.Boolean)
     fechasesion = db.Column(db.Date)
-    contrasenia = db.Column(db.String)
+    contraseña = db.Column(db.String)
     condiciones = db.Column(db.Boolean)
     terminos = db.Column(db.Boolean)
 
 
-    def __init__(self, id_tipo, tipo, estado):
+    def __init__(self, id_tipo, id_usu, sesion,fechasesion,contraseña,condiciones,terminos):
         self.id_tipo = id_tipo
-        self.tipo = tipo
-        self.estado = estado
+        self.id_usu = id_usu
+        self.sesion = sesion
+        self.fechasesion = fechasesion
+        self.contraseña = contraseña
+        self.condiciones = condiciones
+        self.terminos = terminos
