@@ -70,8 +70,10 @@ def Generar_contrasenia():
     alphabet = string.ascii_letters + string.digits + string.punctuation
     pre_contrasenia = ''.join(secrets.choice(alphabet) for i in range(12))  # Longitud de 12 caracteres
 
+    print(pre_contrasenia)
     # Hashea la contraseña generada
-    contraseña = generate_password_hash(pre_contrasenia)    
+    contraseña = generate_password_hash(pre_contrasenia)  
+      
 
     new_usuarioTipo = UsuarioTipo(id_tipo, id_usu, sesion, fechasesion, contraseña, condiciones, terminos)
     db.session.add(new_usuarioTipo)

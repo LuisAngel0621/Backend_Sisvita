@@ -14,9 +14,10 @@ def Validar_Sesion():
     correoinstitucional = request.json.get('correoinstitucional') 
     contraseña = request.json.get('contraseña')
 
-    usuario = Usuario.query.filter_by(correoinstitucional = correoinstitucional)
-    usuariotipo = UsuarioTipo.query.filter_by(id_usu = usuario.id_usu)
-
+    usuario = Usuario.query.filter_by(correoinstitucional = correoinstitucional).first()
+    
+    usuariotipo = UsuarioTipo.query.filter_by(id_usu = usuario.id_usu).first()
+    print(usuariotipo.contraseña)
     if not usuario:
         return make_response(jsonify({"message": "Usuario no encontrado"}), 404)    
     
@@ -24,8 +25,13 @@ def Validar_Sesion():
     # Verificar la contraseña
     if not check_password_hash(usuariotipo.contraseña, contraseña):
         return make_response(jsonify({"message": "Contraseña incorrecta"}), 401)
+
+    data = {
+        'codigo': "201",
+        'mensaje': "Usuario Registrado",
+    }   
     
-    return make_response(jsonify({"message": "Validación exitosa", "user": {"id": usuario.id_usu, "nombre": usuario.nombre}}), 200)    
+    return make_response(jsonify(data), 200)    
 
 
 
