@@ -14,32 +14,18 @@ from db import db
 evaluar = Blueprint('evaluar',__name__)
 
 @evaluar.route('/EvaluarTest/<int:id_paciente>', methods = ['PUT']) #cambiar el nombre del CUS
-def Guardar_datos(id_usu):
-    evaluacion = Diagnostico.query.get(id_usu)
-    resultado = request.json.get('resultado')
-    diagnostico = request.json.get('diagnostico')
+def Guardar_datos(id_usutip):
+    evaluacion = Diagnostico.query.get(id_usutip)
+    comentario  = request.json.get('comentario')
+    recomendacion = request.json.get('recomendacion')
 
-    evaluacion.resultado = resultado
-    evaluacion.diagnostico = diagnostico
+    evaluacion.comentario = comentario
+    evaluacion.recomendacion = recomendacion
     db.session.commit()
 
     data = {
-        'message': 'Recaudacion actualizada',
+        'message': 'Test evaluado',
         'status': 200
     }
     
     return make_response(jsonify(data),200)
-                                   
-@evaluar.route('/VisualizarResultados', methods = ['GET'])
-def Visualizar_datos():
-    usuarios_eval = Diagnostico.query.all()
-    resultado = Diagnosticos_Schema.dump(usuarios_eval)
-    response ={
-       'success': True,
-        'data': resultado
-    }    
-    return make_response(jsonify(response),200)
-
-
-
-

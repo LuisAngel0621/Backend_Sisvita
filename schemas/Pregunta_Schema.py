@@ -1,12 +1,12 @@
 from ma import ma
-from models.Preguntas import preguntaModel
+from models.Preguntas import Preguntas
 
 class PreguntaSchema(ma.Schema):
     class Meta:
-        model = preguntaModel
+        model = Preguntas
         fields = (
                   'id_preguntas',
                   'descripcion'
                   )
-Tests_Schema = PreguntaSchema(many=True)
-Test_Schema = PreguntaSchema()
+Preguntas_Schema = PreguntaSchema(many=True)
+Pregunta_Schema = PreguntaSchema()

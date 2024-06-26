@@ -6,11 +6,13 @@ class DiagnosticoSchema(ma.Schema):
         model = Diagnostico
         fields = (
                   'id_diag',
+                  'id_usutip',
                   'id_user_test',
-                  'sum_cognitivo',
-                  'sum_fisiologico',
-                  'sum_motor',
-                  'diagnostico'
+                  'id_nivel',
+                  'puntaje',
+                  'comentario',
+                  'recomendacion',
+                  'notificacion'
                   )
 Diagnosticos_Schema = DiagnosticoSchema(many=True)
 Diagnostico_Schema = DiagnosticoSchema()

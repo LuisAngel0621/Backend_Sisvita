@@ -1,9 +1,9 @@
 from flask import Flask
 from routes.RegistrarUsuario import usuario
 from routes.RealizarTest import respuestas
-from routes.obtenerPreguntas import preguntaBP
-from routes.obtenerRespuestas import respuestaBP
 from routes.IniciarSesion import sesion
+from routes.RealizarVigilancia import vigilancia
+from routes.VisualizarMapaCalor import mapacalor
 from routes.EvaluarTest import evaluar
 from Config import DATABASE_CONNECTION_URI
 from flask_cors import CORS
@@ -30,9 +30,9 @@ db.init_app(app)
 ma.init_app(app)
 app.register_blueprint(usuario)
 app.register_blueprint(respuestas)
-app.register_blueprint(preguntaBP)
-app.register_blueprint(respuestaBP)
 app.register_blueprint(sesion)
+app.register_blueprint(vigilancia)
+app.register_blueprint(mapacalor)
 app.register_blueprint(evaluar)
 
 with app.app_context():

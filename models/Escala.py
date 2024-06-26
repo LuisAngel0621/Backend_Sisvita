@@ -1,6 +1,6 @@
 from db import db
 
-class Test(db.Model):
+class Escala(db.Model):
     __tablename__ = 'tb_escala'
     id_escala = db.Column(db.Integer, primary_key=True) 
     descripcion = db.Column(db.String)

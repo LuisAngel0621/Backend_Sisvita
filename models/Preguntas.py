@@ -1,6 +1,6 @@
 from db import db
 
-class preguntaModel(db.Model):
+class Preguntas(db.Model):
     __tablename__ = 'tb_preguntas'
     
     id_preguntas = db.Column(db.Integer, primary_key=True) 

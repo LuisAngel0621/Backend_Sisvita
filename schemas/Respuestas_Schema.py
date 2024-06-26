@@ -1,12 +1,12 @@
 from ma import ma
-from models.Respuestas import respuestasModel
+from models.Respuestas import Respuestas
 
 class RespuestaSchema(ma.Schema):
     class Meta:
-        model = respuestasModel
+        model = Respuestas
         fields = (
                   'id_respuestas',
                   'descripcion'
                   )
-Tests_Schema = RespuestaSchema(many=True)
-Test_Schema = RespuestaSchema()
+Respuestas_Schema = RespuestaSchema(many=True)
+Respuesta_Schema = RespuestaSchema()

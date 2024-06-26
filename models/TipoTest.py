@@ -1,6 +1,6 @@
 from db import db
 
-class Test(db.Model):
+class TipoTest(db.Model):
     __tablename__ = 'tb_tipotest'
     id_tipotest = db.Column(db.Integer, primary_key=True) 
     nombre = db.Column(db.String)
