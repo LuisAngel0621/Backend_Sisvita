@@ -7,12 +7,15 @@ class DiagnosticoSchema(ma.Schema):
         fields = (
                   'id_diag',
                   'id_usutip',
-                  'id_user_test',
+                  'nombres',
+                  'apellidos',
+                  'tipo_test',
                   'id_nivel',
                   'puntaje',
                   'comentario',
                   'recomendacion',
-                  'notificacion'
+                  'notificacion',
+                  'fecha_test'
                   )
 Diagnosticos_Schema = DiagnosticoSchema(many=True)
 Diagnostico_Schema = DiagnosticoSchema()
