@@ -30,10 +30,10 @@ def Guardar_datos(id_diag):
 
     data = {
         'message': 'Test evaluado',
-        'status': 200
+        'status': 201
     }
     
-    return make_response(jsonify(data),200)
+    return make_response(jsonify(data),201)
 
 @evaluar.route('/NotificarResultado', methods = ['POST']) #cambiar el nombre del CUS
 def Notificar_resultados():

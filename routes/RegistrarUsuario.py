@@ -52,10 +52,10 @@ def Buscar_usuario(correoinstitucional):
 
     data = {
         'message': 'Usuario encontrado',
-        'status': 200,
+        'status': 201,
         'data': result       
     }
-    return make_response(jsonify(data), 200)
+    return make_response(jsonify(data), 201)
 
 @usuario.route('/EnviarContrasenia', methods = ['POST'])
 def Generar_contrasenia():

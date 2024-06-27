@@ -43,10 +43,10 @@ def obtener_preguntas():
 
     data = {
         'preguntas': preguntaSchema,
-        'status': 200
+        'status': 201
     }
 
-    return make_response(jsonify(data),200)
+    return make_response(jsonify(data),201)
 
 @respuestas.route('/ObtenerRespuestas', methods = ['GET'])
 def obtener_respuestas():
@@ -55,11 +55,11 @@ def obtener_respuestas():
     respuestasSchema = Respuestas_Schema.dump(respuestas)
 
     data = {
-        'preguntas': respuestasSchema,
-        'status': 200
+        'respuestas': respuestasSchema,
+        'status': 201
     }
 
-    return make_response(jsonify(data),200)
+    return make_response(jsonify(data),201)
 
 @respuestas.route('/ObtenerEscala', methods = ['GET'])
 def obtener_escala():
@@ -68,11 +68,11 @@ def obtener_escala():
     escalasSchema = Escalas_Schema.dump(escalas)
 
     data = {
-        'preguntas': escalasSchema,
-        'status': 200
+        'escalas': escalasSchema,
+        'status': 201
     }
 
-    return make_response(jsonify(data),200)
+    return make_response(jsonify(data),201)
 
 
 

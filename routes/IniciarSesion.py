@@ -31,7 +31,7 @@ def Validar_Sesion():
         'mensaje': "Usuario Registrado",
     }   
     
-    return make_response(jsonify(data), 200)    
+    return make_response(jsonify(data), 201)    
 
 
 
