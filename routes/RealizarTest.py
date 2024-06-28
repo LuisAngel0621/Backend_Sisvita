@@ -11,6 +11,7 @@ from schemas.Respuestas_Schema import Respuestas_Schema
 from schemas.Pregunta_Schema import Preguntas_Schema
 from schemas.UsuarioTest_schema import Usuario_Test_Schema
 from db import db
+import time
 
 respuestas = Blueprint('respuestas', __name__)
 
@@ -20,8 +21,6 @@ def Guardar_Respuestas():
     id_test = data.get('id_test')
     id_paciente = data.get('id_paciente')
     answers = data.get('answers')
-
-    
     for answer in answers:
         id_escala = answer.get('id_escala')
         id_respuestas = answer.get('id_respuestas')
