@@ -11,6 +11,7 @@ class UsuarioTipoSchema(ma.Schema):
                   'fechasesion',
                   'contrasenia',
                   'condiciones',
-                  'terminos')
+                  'terminos',
+                  'contraseñahash')
 
 Usuario_Tipo_Schema = UsuarioTipoSchema()

@@ -23,7 +23,7 @@ def Validar_Sesion():
     
 
     # Verificar la contraseña
-    if not check_password_hash(usuariotipo.contraseña, contraseña):
+    if not check_password_hash(usuariotipo.contraseñahash, contraseña):
         return make_response(jsonify({"message": "Contraseña incorrecta"}), 401)
 
     data = {

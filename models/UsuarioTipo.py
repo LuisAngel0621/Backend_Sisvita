@@ -12,9 +12,10 @@ class UsuarioTipo(db.Model):
     contraseña = db.Column(db.String)
     condiciones = db.Column(db.Boolean)
     terminos = db.Column(db.Boolean)
+    contraseñahash = db.Column(db.String)
 
 
-    def __init__(self, id_tipo, id_usu, sesion,fechasesion,contraseña,condiciones,terminos):
+    def __init__(self, id_tipo, id_usu, sesion,fechasesion,contraseña,condiciones,terminos,contraseñahash):
         self.id_tipo = id_tipo
         self.id_usu = id_usu
         self.sesion = sesion
@@ -22,3 +23,4 @@ class UsuarioTipo(db.Model):
         self.contraseña = contraseña
         self.condiciones = condiciones
         self.terminos = terminos
+        self.contraseñahash = contraseñahash

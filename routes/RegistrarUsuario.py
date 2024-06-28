@@ -68,14 +68,14 @@ def Generar_contrasenia():
 
     # Genera una contraseña aleatoria segura
     alphabet = string.ascii_letters + string.digits + string.punctuation
-    pre_contrasenia = ''.join(secrets.choice(alphabet) for i in range(12))  # Longitud de 12 caracteres
+    contraseña = ''.join(secrets.choice(alphabet) for i in range(12))  # Longitud de 12 caracteres
 
-    print(pre_contrasenia)
+    print(contraseña)
     # Hashea la contraseña generada
-    contraseña = generate_password_hash(pre_contrasenia)  
+    contraseñahash = generate_password_hash(contraseña)  
       
 
-    new_usuarioTipo = UsuarioTipo(id_tipo, id_usu, sesion, fechasesion, contraseña, condiciones, terminos)
+    new_usuarioTipo = UsuarioTipo(id_tipo, id_usu, sesion, fechasesion, contraseña, condiciones, terminos,contraseñahash)
     db.session.add(new_usuarioTipo)
     db.session.commit()
 
