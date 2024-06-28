@@ -27,23 +27,6 @@ def TestRealizadosEspecifico(id):
         }
         return make_response(jsonify(response), 404)
 
-@vigilancia.route('/RealizarVigilancia', methods = ['GET'])
-def TestRealizados():
-    Evatests = Diagnostico.query.all()
-    EvatestSchema = Diagnostico_Schema.dump(Evatests)
-    if Evatests:
-        res = Diagnostico_Schema.dump(Evatests)
-        response ={
-            'success': True,
-            'data': res
-        }    
-        return make_response(jsonify(response),200)
-    else:
-        response ={
-            'success': True,
-            'message': 'Diagnosticos no encontrados'
-        }
-        return make_response(jsonify(response), 404)
 
     
 @vigilancia.route('/ObtenerNivel', methods = ['GET'])
@@ -76,7 +59,7 @@ def ObtenerNivelEspecifico(id):
         return make_response(jsonify(response), 404)
 
 
-'''
+
 @vigilancia.route('/RealizarVigilancia', methods = ['GET'])
 def TestRealizados():
     Evatest = Diagnostico.query.all()
@@ -86,4 +69,3 @@ def TestRealizados():
         'data': res
     }    
     return make_response(jsonify(response),200)
-'''
