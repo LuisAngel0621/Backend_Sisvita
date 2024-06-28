@@ -10,19 +10,6 @@ from db import db
 
 vigilancia = Blueprint('vigilancia', __name__)
 
-
-@vigilancia.route('/RealizarVigilancia', methods = ['GET'])
-def TestRealizados():
-    Evatest = Diagnostico.query.all()
-    res = Diagnosticos_Schema.dump(Evatest)
-    response ={
-        'success': True,
-        'data': res
-    }    
-    return make_response(jsonify(response),200)
-
-
-
 @vigilancia.route('/RealizarVigilancia/<id>', methods = ['GET'])
 def TestRealizadosEspecifico(id):
     Evatest = Diagnostico.query.filter_by(id_diag=id).first()
@@ -58,6 +45,7 @@ def TestRealizados():
         }
         return make_response(jsonify(response), 404)
 
+    
 @vigilancia.route('/ObtenerNivel', methods = ['GET'])
 def ObtenerNivel():
     niveles = Nivel.query.all()
@@ -69,6 +57,7 @@ def ObtenerNivel():
 
     return make_response(jsonify(data),201)
 
+    
 @vigilancia.route('/ObtenerNivel/<id>', methods = ['GET'])
 def ObtenerNivelEspecifico(id):
     niveltes = Nivel.query.filter_by(id_nivel=id).first()
@@ -85,3 +74,16 @@ def ObtenerNivelEspecifico(id):
             'message': 'Diagnostico no encontrado'
         }
         return make_response(jsonify(response), 404)
+
+
+'''
+@vigilancia.route('/RealizarVigilancia', methods = ['GET'])
+def TestRealizados():
+    Evatest = Diagnostico.query.all()
+    res = Diagnosticos_Schema.dump(Evatest)
+    response ={
+        'success': True,
+        'data': res
+    }    
+    return make_response(jsonify(response),200)
+'''
