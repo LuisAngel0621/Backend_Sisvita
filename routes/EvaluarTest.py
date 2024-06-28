@@ -3,7 +3,6 @@ from flask import request, make_response
 from flask import jsonify
 from models.Usuario import Usuario
 from models.Diagnostico import Diagnostico
-from schemas.Diagnostico_Schema import Diagnosticos_Schema
 from models.UsuarioTipo import UsuarioTipo
 from schemas.Usuario_schema import Usuario_Schema
 from werkzeug.security import generate_password_hash
