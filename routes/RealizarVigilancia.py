@@ -10,6 +10,22 @@ from db import db
 
 vigilancia = Blueprint('vigilancia', __name__)
 
+<<<<<<< Updated upstream
+=======
+
+# @vigilancia.route('/RealizarVigilancia', methods = ['GET'])
+# def TestRealizados():
+#     Evatest = Diagnostico.query.all()
+#     res = Diagnosticos_Schema.dump(Evatest)
+#     response ={
+#         'success': True,
+#         'data': res
+#     }    
+#     return make_response(jsonify(response),200)
+
+
+
+>>>>>>> Stashed changes
 @vigilancia.route('/RealizarVigilancia/<id>', methods = ['GET'])
 def TestRealizadosEspecifico(id):
     Evatest = Diagnostico.query.filter_by(id_diag=id).first()
