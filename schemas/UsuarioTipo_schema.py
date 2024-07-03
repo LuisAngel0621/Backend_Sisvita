@@ -17,4 +17,4 @@ class UsuarioTipoSchema(ma.Schema):
                   'usuario')
     usuario = ma.Nested(UsuarioSchema, only = ('nombres','apellidos'))
 
-Usuario_Tipo_Schema = UsuarioTipoSchema()
+Usuario_Tipo_Schema = UsuarioTipoSchema(only = ["id_usutip",])

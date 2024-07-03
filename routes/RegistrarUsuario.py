@@ -4,6 +4,7 @@ from flask import jsonify
 from models.Usuario import Usuario
 from models.UsuarioTipo import UsuarioTipo
 from schemas.Usuario_schema import Usuario_Schema
+from schemas.UsuarioTipo_schema import Usuario_Tipo_Schema
 from werkzeug.security import generate_password_hash
 from datetime import datetime
 import secrets
@@ -79,10 +80,12 @@ def Generar_contrasenia():
     new_usuarioTipo = UsuarioTipo(id_tipo, id_usu, sesion, fechasesion, contraseña, condiciones, terminos,contraseñahash)
     db.session.add(new_usuarioTipo)
     db.session.commit()
+    result = Usuario_Tipo_Schema.dump(new_usuarioTipo)
 
     data = {
         'message': 'Usuario Tipo registrado',
-        'status': 201
+        'status': 201,
+        'data':result
     }
 
     return make_response(jsonify(data),201)
