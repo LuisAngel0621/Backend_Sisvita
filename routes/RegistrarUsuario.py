@@ -5,6 +5,7 @@ from models.Usuario import Usuario
 from models.UsuarioTipo import UsuarioTipo
 from schemas.Usuario_schema import Usuario_Schema
 from werkzeug.security import generate_password_hash
+from datetime import datetime
 import secrets
 import string
 from db import db
@@ -62,7 +63,7 @@ def Generar_contrasenia():
     id_tipo = request.json.get('id_tipo') 
     id_usu = request.json.get('id_usu')
     sesion = request.json.get('sesion')
-    fechasesion = request.json.get('fechasesion')
+    fechasesion = datetime.now()
     condiciones = request.json.get('condiciones')
     terminos = request.json.get('terminos')
 

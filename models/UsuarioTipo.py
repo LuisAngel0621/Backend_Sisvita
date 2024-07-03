@@ -13,6 +13,7 @@ class UsuarioTipo(db.Model):
     condiciones = db.Column(db.Boolean)
     terminos = db.Column(db.Boolean)
     contraseñahash = db.Column(db.String)
+    usuario = db.relationship('Usuario', backref='tb_usuario_tipo')
 
 
     def __init__(self, id_tipo, id_usu, sesion,fechasesion,contraseña,condiciones,terminos,contraseñahash):

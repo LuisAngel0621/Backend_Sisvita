@@ -77,20 +77,22 @@ def obtener_escala():
 @respuestas.route('/SumaPuntaje/<int:id_paciente>', methods = ['GET'])
 def suma_puntaje(id_paciente):
     suma_id_escala = db.session.query(db.func.sum(UsuarioTest.id_escala)).filter_by(id_paciente=id_paciente).scalar()
-    return jsonify({'suma_id_escala': suma_id_escala})   
+    data ={
+        'success': True,
+        'suma': suma_id_escala
+    }
+    return make_response(jsonify(data),201)  
 
 @respuestas.route('/ResultadoTest', methods = ['POST'])
 def resultado_test():
+    id_user_test = request.json.get('id_user_test')
     id_nivel = request.json.get('id_nivel') 
-    nombres = request.json.get('nombres')
-    apellidos = request.json.get('apellidos')
-    tipo_test = request.json.get('tipo_test')
     puntaje = request.json.get('puntaje')
     comentario = request.json.get('comentario')
     recomendacion = request.json.get('recomendacion')
-    fecha_test = request.json.get('fecha_test')
+    notificacion = False
 
-    new_diagnostico = Diagnostico(id_nivel, nombres,apellidos,tipo_test,puntaje,comentario,recomendacion,fecha_test)
+    new_diagnostico = Diagnostico(id_user_test,id_nivel,puntaje,comentario,recomendacion,notificacion)
    
     db.session.add(new_diagnostico)
     db.session.commit()

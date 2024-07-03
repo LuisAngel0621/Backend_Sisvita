@@ -1,5 +1,6 @@
 from ma import ma
 from models.UsuarioTipo import UsuarioTipo
+from schemas.Usuario_schema import UsuarioSchema
 
 class UsuarioTipoSchema(ma.Schema):
     class Meta:
@@ -12,6 +13,8 @@ class UsuarioTipoSchema(ma.Schema):
                   'contrasenia',
                   'condiciones',
                   'terminos',
-                  'contraseñahash')
+                  'contraseñahash',
+                  'usuario')
+    usuario = ma.Nested(UsuarioSchema, only = ('nombres','apellidos'))
 
 Usuario_Tipo_Schema = UsuarioTipoSchema()
