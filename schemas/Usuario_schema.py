@@ -1,5 +1,6 @@
 from ma import ma
 from models.Usuario import Usuario
+from schemas.Ubigeo_Schema import UbigeoSchema
 
 class UsuarioSchema(ma.Schema):
     class Meta:
@@ -11,6 +12,8 @@ class UsuarioSchema(ma.Schema):
                   'edad',
                   'sexo',
                   'estadocivil',
-                  'ocupacion')
-
+                  'ocupacion',
+                  'ubigeo')
+        
+    ubigeo = ma.Nested(UbigeoSchema, only=('latitud','longitud'))
 Usuario_Schema = UsuarioSchema()

@@ -6,11 +6,8 @@ class UbigeoSchema(ma.Schema):
         model = Ubigeo
         fields = (
                   'id_ubigeo',
-                  'id_usu',
                   'latitud',
                   'longitud',
-                  'nivel_ansiedad',
-                  'fecha'
                   )
 Ubigeos_Schema = UbigeoSchema(many=True)
 Ubigeo_Schema = UbigeoSchema()
