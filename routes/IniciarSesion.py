@@ -13,15 +13,12 @@ sesion = Blueprint('sesion', __name__)
 def Validar_Sesion():
     correoinstitucional = request.json.get('correoinstitucional') 
     contraseña = request.json.get('contraseña')
-
     usuario = Usuario.query.filter_by(correoinstitucional = correoinstitucional).first()
-    
     usuariotipo = UsuarioTipo.query.filter_by(id_usu = usuario.id_usu).first()
-    print(usuariotipo.contraseña)
+    print(usuariotipo)
     if not usuario:
         return make_response(jsonify({"message": "Usuario no encontrado"}), 404)    
     
-
     # Verificar la contraseña
     if not check_password_hash(usuariotipo.contraseñahash, contraseña):
         return make_response(jsonify({"message": "Contraseña incorrecta"}), 401)
@@ -29,6 +26,7 @@ def Validar_Sesion():
     data = {
         'codigo': "201",
         'mensaje': "Usuario Registrado",
+        'id_especialista': usuariotipo.id_usutip
     }   
     
     return make_response(jsonify(data), 201)    
