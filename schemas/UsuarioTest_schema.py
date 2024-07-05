@@ -12,6 +12,7 @@ class UsuarioTestSchema(ma.Schema):
                   'id_escala',
                   'id_respuestas',
                   'id_preguntas',
+                  'fecha_test',
                   'usuario_tipo',
                   'test')
     usuario_tipo = ma.Nested(UsuarioTipoSchema, only=('usuario',))

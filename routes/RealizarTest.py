@@ -14,7 +14,7 @@ from schemas.Pregunta_Schema import Preguntas_Schema
 from schemas.Nivel_Schema import Niveles_Schema
 from schemas.UsuarioTest_schema import Usuario_Test_Schema
 from db import db
-import time
+from datetime import datetime
 
 respuestas = Blueprint('respuestas', __name__)
 
@@ -24,6 +24,7 @@ def Guardar_Respuestas():
     id_test = data.get('id_test')
     id_paciente = data.get('id_paciente')
     answers = data.get('answers')
+    fecha_test = datetime.now()
     for answer in answers:
         id_escala = answer.get('id_escala')
         id_respuestas = answer.get('id_respuestas')
@@ -31,7 +32,7 @@ def Guardar_Respuestas():
 
         if not id_preguntas or not id_respuestas:
             return jsonify({'error': 'Cada respuesta debe contener question_id y respuesta'}), 400
-        new_test = UsuarioTest(id_test = id_test,id_paciente=id_paciente,id_escala = id_escala, id_respuestas=id_respuestas, id_preguntas=id_preguntas)
+        new_test = UsuarioTest(id_test = id_test,id_paciente=id_paciente,id_escala = id_escala, id_respuestas=id_respuestas, id_preguntas=id_preguntas,fecha_test = fecha_test)
         db.session.add(new_test)
     db.session.commit()
 

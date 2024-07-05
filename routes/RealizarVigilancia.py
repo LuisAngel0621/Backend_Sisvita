@@ -64,6 +64,7 @@ def ObtenerNivelEspecifico(id):
 def TestRealizados():
     Evatest = Diagnostico.query.all()
     res = Diagnosticos_Schema.dump(Evatest)
+    
     response ={
         'success': True,
         'data': res
