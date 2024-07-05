@@ -24,7 +24,8 @@ def Guardar_Respuestas():
     id_test = data.get('id_test')
     id_paciente = data.get('id_paciente')
     answers = data.get('answers')
-    fecha_test = datetime.now()
+    #Fecha de test automatica
+    fecha_test = datetime.now().strftime('%Y-%m-%d')
     for answer in answers:
         id_escala = answer.get('id_escala')
         id_respuestas = answer.get('id_respuestas')
